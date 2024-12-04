@@ -1,0 +1,521 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap);
+
+@font-face {
+  font-family: Brushnova-Demo;
+  src: url(font/Brushnova-Demo.ttf);
+}
+
+@font-face {
+  font-family: Telematic;
+  src: url(font/Telematic.otf);
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
+
+* {
+  margin:0;
+  padding:0;
+  outline:none;
+  list-style:none;
+  text-decoration:none;
+  box-sizing:border-box;
+  color:#FFF;
+  background: transparent;
+  border:none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(../assets/background.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.login-container {
+    background: #05050559;
+    border-radius: 100px;
+    box-shadow: 0 0px 50px rgb(0, 76, 255);
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+    
+}
+
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #00ffff;
+    font-family: Telematic;
+}
+
+.input-field {
+    margin-bottom: 15px;
+    width: 380px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+
+
+.forgot-password a {
+    color: #25a7a7;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+
+/*  
+
+REGİSTER SİDE
+
+*/
+
+
+.dark button {
+  --a: 0%;
+  --hue: 550deg;
+  --x: 50;
+  --y: 50;
+  --button: hsl(var(--hue), 56%, 56%);
+  --edge: 0px;
+  --size: 1.10em;
+  
+  background: transparent;
+  color: hsla(var(--hue), 80%, 30%, 0.8);
+  font-size: 1.8em;
+  position: relative;
+  padding: calc(var(--size)) calc(var(--size)*4);
+  animation: color 20s linear infinite both;
+  transition: 
+      --a .5s ease-in-out, 
+      scale var(--spring-duration) var(--spring-easing);
+  scale: 0.92;
+  isolation: isolate;
+  &:hover {
+      --a: 100%;
+      transition-duration: .5s, 1s;
+      box-shadow: none;
+      opacity: 1;
+      scale: 1;
+  }
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  inset: 0em;
+  filter: blur(12px) url(#goo) drop-shadow(0 .25em .5em hsla(0deg, 0%, 0%, 0.8)); 
+  background-image:
+      linear-gradient(0deg,var(--button),var(--button)),
+      radial-gradient(
+          40% 70% at calc(var(--x) * 1%) calc(var(--y) * 1%),
+          hsla(var(--hue), 77%, 77%, var(--a)) 0%,
+          transparent 90%
+      );
+  background-clip: content-box, border-box;
+  padding: 24px;
+  z-index: -1;
+  border: inherit;
+  animation: color 20s linear infinite both;
+}
+
+
+
+
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+:root {
+  --color-bg1: rgb(8, 10, 15);
+  --color-bg2: rgb(0, 17, 32);
+  --color1: 18, 113, 255;
+  --color2: 107, 74, 255;
+  --color3: 100, 100, 255;
+  --color4: 50, 160, 220;
+  --color5: 80, 47, 122;
+  --color-interactive: 140, 100, 255;
+  --circle-size: 80%;
+  --blending: hard-light;
+}
+
+
+
+
+html, body {
+  font-family: 'Dongle', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #FFF;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.card {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  max-width: 600px;
+  padding: 48px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 90px rgba(0,0,0,0.1);
+  overflow: hidden;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 34%, rgba(255,255,255,1) 89%, rgba(255,255,255,0) 100%);
+    opacity: 0.3;
+    filter: blur(.5px);
+    mix-blend-mode: hard-light;
+  }
+
+
+  .noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 0.1;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    text-shadow: -3px 0px 2px rgba(0,0,0,0.1);
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.gradient-bg {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+  top: 0;
+  left: 0;
+
+  .svgBlur {
+    display: none;
+  }
+
+  .noiseBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    mix-blend-mode: soft-light;
+    opacity: 0.3;
+  }
+  .gradients-container {
+    filter: url(#goo) blur(40px) ;
+    width: 100%;
+    height: 100%;
+  }
+
+  .g1 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+
+    transform-origin: center center;
+    animation: moveVertical 30s ease infinite;
+
+    opacity: 1;
+  }
+
+  .g2 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+
+    transform-origin: calc(50% - 400px);
+    animation: moveInCircle 20s reverse infinite;
+
+    opacity: 1;
+  }
+
+  .g3 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2 + 200px);
+    left: calc(50% - var(--circle-size) / 2 - 500px);
+
+    transform-origin: calc(50% + 400px);
+    animation: moveInCircle 40s linear infinite;
+
+    opacity: 1;
+  }
+
+  .g4 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+
+    transform-origin: calc(50% - 200px);
+    animation: moveHorizontal 40s ease infinite;
+
+    opacity: 0.7;
+  }
+
+  .g5 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+
+    width: calc(var(--circle-size) * 2);
+    height: calc(var(--circle-size) * 2);
+    top: calc(50% - var(--circle-size));
+    left: calc(50% - var(--circle-size));
+
+    transform-origin: calc(50% - 800px) calc(50% + 200px);
+    animation: moveInCircle 20s ease infinite;
+
+    opacity: 1;
+  }
+
+  .interactive {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+
+    width: 100%;
+    height: 100%;
+    top: -50%;
+    left: -50%;
+
+    opacity: 0.7;
+  }
+}
+
+
+.input-container {
+  position: relative;
+  width: 350px;
+  margin-bottom: 20px;
+  font-family: Brushnova-Demo;
+} 
+
+.input-container2 {
+  position: relative;
+  width: 250px;
+  margin-left: 100px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #cccccc;
+  font-size: 16px;
+  background-color: transparent;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  color: #ffffff;
+}
+
+.input-container input:focus {
+  border-bottom-color: #1880bd;
+  color: #1880bd;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+  top: -20px;
+  font-size: 12px;
+  color: #1880bd;
+  
+}
+
+.input-container label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 16px;
+  color: #aaaaaa;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.input-container2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #1880bd;
+  transition: width 0.3s ease-in-out;
+}
+
+.input-container2 input:focus ~ ::after {
+  width: 100%;
+}
+
+.input-container2 input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #cccccc;
+  font-size: 16px;
+  background-color: transparent;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  color: #ffffff;
+}
+
+.input-container2 input:focus {
+  border-bottom-color: #1880bd;
+  color: #1880bd;
+}
+
+.input-container2 input:focus + label,
+.input-container2 input:not(:placeholder-shown) + label {
+  top: -20px;
+  font-size: 12px;
+  color: #1880bd;
+}
+
+.input-container2 label {
+  position: absolute;
+  top: 10px;
+  left: -100px;
+  font-size: 18px;
+  color: #525566;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+  font-family: Telematic;
+}
+
+.input-container2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #1880bd;
+  transition: width 0.3s ease-in-out;
+}
+
+.input-container2 input:focus ~ ::after {
+  width: 100%;
+}
+
+.verification-box h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.verification-box p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
